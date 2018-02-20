@@ -6,9 +6,10 @@ node {
     }     
     
    stage('Build') {
+        checkout scm
         //docker.image('jumanjiman/ssllabs-scan') '-usecache -grade --hostcheck www.elastic2ls.com'
-         //sh " docker pull jumanjiman/ssllabs-scan; docker run jumanjiman/ssllabs-scan -usecache -grade -quiet --hostcheck www.elastic2ls.com"
-         sh 'docker run -v /tmp:/tmp jumanjiman/ssllabs-scan -usecache -grade  -quiet --hostfile /tmp/sites.txt'
+         sh " docker pull jumanjiman/ssllabs-scan; docker run jumanjiman/ssllabs-scan -usecache -grade -quiet --hostcheck www.elastic2ls.com"
+         //sh 'docker run -v /tmp:/tmp jumanjiman/ssllabs-scan -usecache -grade  -quiet --hostfile /tmp/sites.txt'
    }
       
 }
