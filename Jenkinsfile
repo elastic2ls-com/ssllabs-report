@@ -6,12 +6,8 @@ node {
     
    stage('Build') {
         checkout scm
-        sh 'docker run -v ${WORKSPACE}:/tmp jumanjiman/ssllabs-scan -usecache -grade  -quiet --hostfile /tmp/site.txt'
-   }
-   
-   stage('OUTPUT') {
-        def ret = sh(script: 'uname', returnStdout: true)
+        def ssl = (sh script: 'docker run -v ${WORKSPACE}:/tmp jumanjiman/ssllabs-scan -usecache -grade  -quiet --hostfile /tmp/site.txt', returnStdout: true)
         println ret
-   } 
+   }
 }
 
