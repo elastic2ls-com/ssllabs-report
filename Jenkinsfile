@@ -1,7 +1,7 @@
 node {
    stage('Build') {
-        docker.image('jumanjiman/ssllabs-scan').inside('--read-only --cap-drop all --rm') 
-           '-usecache -grade -quiet --hostcheck www.elastic2ls.com' 
+        docker.image('jumanjiman/ssllabs-scan') '--read-only --cap-drop all --rm' 
+            '-usecache -grade -quiet --hostcheck www.elastic2ls.com' 
         }
 }
 
