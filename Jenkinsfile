@@ -1,6 +1,6 @@
 node {
     stage('Prepare') {
-        cleanWs()
+        //cleanWs()
         // Load seccomp configuration for container
         sh 'docker pull jumanjiman/ssllabs-scan:latest'
     }     
