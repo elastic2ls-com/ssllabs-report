@@ -6,7 +6,7 @@ node {
     
    stage('Build') {
         checkout scm
-        sh 'docker run -v ${WORKSPACE}:/tmp jumanjiman/ssllabs-scan -usecache -quiet --hostfile /tmp/site.txt > ssh_checks.json'
+        sh 'docker run -v ${WORKSPACE}:/tmp jumanjiman/ssllabs-scan -usecache -quiet --hostfile /tmp/site.txt > ssl_checks.json'
    }
    stage('Archive') {
         // Archive results
