@@ -1,16 +1,16 @@
 node {
     stage('Prepare') {
-        //cleanWs()
-        // Load seccomp configuration for container
+        cleanWs()
         sh 'docker pull jumanjiman/ssllabs-scan:latest'
     }     
     
    stage('Build') {
         checkout scm
-        //docker.image('jumanjiman/ssllabs-scan') '-usecache -grade --hostcheck www.elastic2ls.com'
-         //sh " docker run jumanjiman/ssllabs-scan -usecache -grade -quiet --hostcheck www.elastic2ls.com"
-         sh 'docker run -v ${WORKSPACE}:/tmp jumanjiman/ssllabs-scan -usecache -grade  -quiet --hostfile /tmp/site.txt'
+        sh 'docker run -v ${WORKSPACE}:/tmp jumanjiman/ssllabs-scan -usecache -grade  -quiet --hostfile /tmp/site.txt'
    }
-      
+   
+   stage('OUTPUT') {
+           def output = sh returnStdout: true, script: 'ls -l'
+   } 
 }
 
