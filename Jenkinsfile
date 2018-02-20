@@ -10,7 +10,8 @@ node {
    }
    
    stage('OUTPUT') {
-           def output = sh returnStdout: true, script: 'ls -l'
+        def ret = sh(script: 'uname', returnStdout: true)
+        println ret
    } 
 }
 
