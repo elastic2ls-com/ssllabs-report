@@ -4,7 +4,7 @@ node {
     }
     stage('Build') {
         // Run lighthouse
-        docker.image('jumanjiman/ssllabs-scan').inside("-usecache -grade -quiet https://www.elastic2ls.com") {
+        docker.image('jumanjiman/ssllabs-scan').inside("--read-only --cap-drop all --rm -usecache -grade -quiet https://www.elastic2ls.com") {
 
             
         }
