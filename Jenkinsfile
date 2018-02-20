@@ -1,6 +1,6 @@
 node {
-    stage("check ww.elastic2ls.com ") {
-        docker.image('jumanjiman/ssllabs-scan') {
+    stage('check ww.elastic2ls.com') {
+        docker.image('jumanjiman/ssllabs-scan').inside('--read-only --cap-drop all --rm') {
         "-usecache -grade -quiet www.elastic2ls.com"
         }
 }
