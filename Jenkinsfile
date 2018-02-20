@@ -9,7 +9,7 @@ node {
         checkout scm
         //docker.image('jumanjiman/ssllabs-scan') '-usecache -grade --hostcheck www.elastic2ls.com'
          //sh " docker run jumanjiman/ssllabs-scan -usecache -grade -quiet --hostcheck www.elastic2ls.com"
-         sh 'docker run -v /tmp:/tmp jumanjiman/ssllabs-scan -usecache -grade  -quiet --hostfile ${WORKSPACE}/site.txt'
+         sh 'docker run -v ${WORKSPACE}:/tmp jumanjiman/ssllabs-scan -usecache -grade  -quiet --hostfile /tmp/site.txt'
    }
       
 }
