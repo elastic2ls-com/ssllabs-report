@@ -1,7 +1,7 @@
 node {
    stage('Build') {
         docker.image('jumanjiman/ssllabs-scan')  
-            '-usecache -grade -quiet --hostcheck www.elastic2ls.com' 
+            '-usecache -grade --hostcheck www.elastic2ls.com' 
         }
 }
 
